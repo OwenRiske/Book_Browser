@@ -1,5 +1,4 @@
 package com.company;
-import java.io.File;  // Import the File class
 
 
 public class books {
@@ -10,17 +9,14 @@ public class books {
 
     books(String bookName, String description, String[] genre){
         bookName=bookName;
+        file.makeBookFile(bookName);
         description=description;
+        file.writeBookFile(bookName,description);
         genre=genre;
 
     }
     void changeRating(int newRating){
         rating=newRating;
     }
-    void makeBook(String bookName){
-        File myObj = new File(bookName);
-    }
-    void saveInfo( String description, String[] genre, int rating){
 
-    }
 }
