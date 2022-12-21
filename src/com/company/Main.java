@@ -1,10 +1,13 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
-        String[] genre= {"fantasy","action"};
-    books firstBook = new books("Harry Potter", "wizard kid",genre);
+        ArrayList bookList = new ArrayList();
+        bookList.add(books.makeBook("Harry Potter","Wizard Child",5,bookList));
 
+        System.out.println("Sort Method: \n 1.Priority");
     }
 }

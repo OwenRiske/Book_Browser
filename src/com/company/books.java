@@ -1,22 +1,24 @@
 package com.company;
 
 
+import java.util.ArrayList;
+
 public class books {
-    String bookName;
-    String description;
-    String[] genre;
-    int rating;
 
-    books(String bookName, String description, String[] genre){
-        bookName=bookName;
+    public static String makeBook(String bookName, String description, int rating,ArrayList bookList){
+        bookList.add(bookName);
         file.makeBookFile(bookName);
-        description=description;
-        file.writeBookFile(bookName,description);
-        genre=genre;
-
+        file.writeBookFile(bookName, bookName+"\n"+Integer.toString(rating)+"\n\n"+description);
+        return bookName;
     }
-    void changeRating(int newRating){
-        rating=newRating;
+
+    public static ArrayList bookRating(ArrayList bookList){
+        ArrayList ratingList = new ArrayList();
+        for (int i = 0; i < bookList.size(); i++) {
+            String[] temp=file.bookFileRead(String.valueOf(bookList.get(i)));
+        ratingList.add(Integer. parseInt(temp[1]));
+        }
+        return sort.sortWithNum(ratingList);
     }
 
 }

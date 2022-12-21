@@ -2,6 +2,9 @@ package com.company;
 import java.io.File;  // Import the File class
 import java.io.FileWriter;
 import java.io.IOException;  // Import the IOException class to handle errors
+import java.util.Scanner;
+import java.io.FileNotFoundException;  // Import this class to handle errors
+
 
 
 public class file {
@@ -29,5 +32,21 @@ public class file {
                 e.printStackTrace();
             }
         }
+        public static String bookFileRead(String bookName){
+            try {
+                File myObj = new File(bookName+".txt");
+                Scanner myReader = new Scanner(myObj);
+                while (myReader.hasNextLine()) {
+                    String data = myReader.nextLine();
+                    System.out.println(data);
 
-}
+                }
+                myReader.close();
+            } catch (FileNotFoundException e) {
+                System.out.println("An error occurred.");
+                e.printStackTrace();
+            }
+        }
+        }
+
+
